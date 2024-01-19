@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos</title>
+    <!-- icone -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- css interno -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f1f1f1;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        main {
+            padding: 25px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 14px;
+        }
+
+        p {
+            padding: 7px 0;
+        }
+
+        div.code {
+            border: 1px solid #c9dfff;
+            border-radius: 7px;
+            font-size: 18px;
+            padding: 7px;
+            overflow-x: auto;
+            margin-bottom: 14px !important;
+        }
+
+        div.code code,
+        div.code code button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        div.code code button.copyTexto,
+        div.code code button.copyTexto > i {
+            background: none;
+            border: none !important;
+        }
+
+        section {
+            padding: 7px 0;
+        }
+
+        section details {
+            background-color: #232526;
+            border-radius: 7px;
+            color: #c9dfff;
+            padding: 14px;
+        }
+
+        section details .divDetails {
+            background-color: #f1f1f1;
+            color: #232526;
+            border-radius: 7px;
+            padding: 14px;
+        }
+
+        details button {
+            padding: 3px 7px;
+            border-radius: 7px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <main>        
+        <div class="conteudo">
+            <h1>Comandos</h1>
+
+            <!--acordion-->
+            <div class="acordion">
+                <!-- sequelize -->
+                <section class="sectionSequelize">
+                    <details class="sequelize">
+                        <summary class="summary">Squelize</summary>
+
+                        <div class="divDetails">
+                            <a href="https://github.com/mlsfront/comandos/blob/develop/markdown/comandos-sequelize.md"><button>markdown</button></a>
+
+                            <h2 class="text-center">Comando Sequelize</h2>
+
+                            <h2>Configuração Inicial</h2>
+                    
+                            <p>Sequelize é uma biblioteca Javascript que facilita o gerenciamento do banco de dados SQL</p>
+
+                            <div class="code c1">
+                                <code>
+                                    npm install --save sequelize
+                                    <button class="copyTexto" onclick="copyCode('.c1')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Instalar o drive do banco de dados "no exemplo foi usado mysql2"</p>
+                            
+                            <div class="code c2">
+                                <code>
+                                    npm install --save mysql2
+                                    <button class="copyTexto" onclick="copyCode('.c2')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Sequelize-cli interface de linha de comando usada para criar modelos, configurações e arquivos de migração para bancos de dados</p>
+                            
+                            <div class="code c3">
+                                <code>
+                                    npm install --save-dev sequelize-cli
+                                    <button class="copyTexto" onclick="copyCode('.c3')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Iniciar o Sequelize-cli e criar o arquivo config</p>
+                            
+                            <div class="code c4">
+                                <code>
+                                    npx sequelize-cli init
+                                    <button class="copyTexto" onclick="copyCode('.c4')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Manipular variáveis de ambiente</p>
+                            
+                            <div class="code c5">
+                                <code>
+                                    npm install dotenv --save
+                                    <button class="copyTexto" onclick="copyCode('.c5')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <h2>Criando e Alterando Tabelas</h2>
+                    
+                            <p>Criar a migration da página home do conteúdo do topo </p>
+                            
+                            <div class="code c6">
+                                <code>
+                                    npx sequelize-cli migration:generate --name create-homes
+                                    <button class="copyTexto" onclick="copyCode('.c6')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Criar a migration acrescentar a coluna imageTop</p>
+                            
+                            <div class="code c7">
+                                <code>
+                                    npx sequelize-cli migration:generate --name alter-homes-add-imagetop
+                                    <button class="copyTexto" onclick="copyCode('.c7')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <h2>Interagindo como o  Banco de Dados</h2>
+                    
+                            <p>Executar as migrations</p>
+                            
+                            <div class="code c8">
+                                <code>
+                                    npx sequelize-cli db:migrate
+                                    <button class="copyTexto" onclick="copyCode('.c8')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Executar down - rollback - Permite que seja desfeita a migration, permitindo a gestão das alterações do banco de dados e versionamento.</p>
+                            
+                            <div class="code c9">
+                                <code>
+                                    npx sequelize-cli db:migrate:undo --name nome-da-migration
+                                    <button class="copyTexto" onclick="copyCode('.c9')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <h2>Criando Models</h2>
+                            <p>Criar a Models da página home do conteúdo do topo </p>
+                            
+                            <div class="code c10">
+                                <code>
+                                    npx sequelize-cli model:generate --name HomesTops --attributes titleOneTop:string,titleTwoTop:string,titleThreeTop:string,linkBtnTop:string,textBtnTop:string,imageTop:string
+                                    <button class="copyTexto" onclick="copyCode('.c10')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <h2>Seeders</h2>
+                            <p>Adicionando Dados Inicais para Tabelas</p>
+                    
+                            <p>Criar seeders</p>
+                            
+                            <div class="code c11">
+                                <code>
+                                    npx sequelize-cli seed:generate --name demo-homestops
+                                    <button class="copyTexto" onclick="copyCode('.c11')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Executar as seeders</p>
+                            
+                            <div class="code c12">
+                                <code>
+                                    npx sequelize-cli db:seed:all
+                                    <button class="copyTexto" onclick="copyCode('.c12')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Executar uma seed</p>
+                            
+                            <div class="code c13">
+                                <code>
+                                    npx sequelize-cli db:seed --seed nome-da-seed
+                                    <button class="copyTexto" onclick="copyCode('.c13')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Executar down - rollback - Permite que seja desfeita todas as seed, permitindo a gestão das alterações do banco de dados e versionamento.</p>
+                            
+                            <div class="code c14">
+                                <code>
+                                    npx sequelize-cli db:seed:undo
+                                    <button class="copyTexto" onclick="copyCode('.c14')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                    
+                            <p>Executar down - rollback - Permite que seja desfeita uma única seed, permitindo a gestão das alterações do banco de dados e versionamento.</p>
+                            
+                            <div class="code c15">
+                                <code>
+                                    npx sequelize-cli db:seed:undo --seed nome-da-seed
+                                    <button class="copyTexto" onclick="copyCode('.c15')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                        </div>
+                    </details>
+                </section>
+
+                <!-- git flow -->
+                <section class="sectionGitFlow">
+                    <details class="gitFlow">
+                        <summary class="summary">Git Flow</summary>
+                        
+                        <div class="divDetails">
+                            <a href="https://github.com/mlsfront/comandos/blob/develop/markdown/comandos-git-flow.md"><button>markdown</button></a>
+                            
+                            <div class="text-center">
+                                <h2>Comandos Git Flow</h2>
+                                
+                                <h3>Comandos que foram apresentados na vídeo aula</h3>
+                                <p>Link para o vídeo no final do conteúdo</p>
+                            </div>
+                            
+                            <p>Iniciando controle para projeto em equipe</p>
+                            
+                            <div class="code g1">
+                                <code>
+                                    git flow init
+                                    <button class="copyTexto" onclick="copyCode('.g1')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>Criando css</p>
+                            
+                            <div class="code g2">
+                                <code>
+                                    git flow feature start css
+                                    <button class="copyTexto" onclick="copyCode('.g2')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>css criado e finalizado</p>
+                            
+                            <div class="code g3">
+                                <code>
+                                    git flow feature finish css
+                                    <button class="copyTexto" onclick="copyCode('.g3')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>css não finalizado e publicado</p>
+                            
+                            <div class="code g4">
+                                <code>
+                                    git flow feature publish css (para o time continuar mexendo)
+                                    <button class="copyTexto" onclick="copyCode('.g4')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>iniciando release </p>
+                            
+                            <div class="code g5">
+                                <code>
+                                    git flow release start 1.0
+                                    <button class="copyTexto" onclick="copyCode('.g5')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>finalizando release</p>
+                            
+                            <div class="code g6">
+                                <code>
+                                    git flow release finish 1.0
+                                    <button class="copyTexto" onclick="copyCode('.g6')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>verificando versões </p>
+                            
+                            <div class="code g7">
+                                <code>
+                                    git tag
+                                    <button class="copyTexto" onclick="copyCode('.g7')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>pequenas aletrações na versãoa atual</p>
+                            
+                            <div class="code g8">
+                                <code>
+                                    git flow hotfix start 1.1
+                                    <button class="copyTexto" onclick="copyCode('.g8')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>aleterações finalizadas</p>
+                            
+                            <div class="code g9">
+                                <code>
+                                    git flow hotfix finish 1.1
+                                    <button class="copyTexto" onclick="copyCode('.g9')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>fazendo push em todas as branchs </p>
+                            
+                            <div class="code g10">
+                                <code>
+                                    git push --all 
+                                    <button class="copyTexto" onclick="copyCode('.g10')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div> 
+                            
+                            <p>Fonte: <a href="https://www.youtube.com/watch?v=394mc6PV8t8&t=1s">Trabalhando em equipe com Git Flow</a></p>        
+                        </div>    
+                    </details>
+                </section>
+            </div>  
+        </div> 
+    </main>   
+    
+    <script>
+        function copyCode(selector) {
+            var element = document.querySelector(selector);
+
+            if (element) {
+                var content = element.textContent.trim().replace(/\s+/g, ' ');
+
+                navigator.clipboard.writeText(content).then(function () {
+                    console.log('Texto copiado com sucesso!');
+                }).catch(function (err) {
+                    console.error('Erro ao copiar o texto: ', err);
+                });
+            } else {
+                console.error('Elemento não encontrado com o seletor:', selector);
+            }
+        }
+    </script>
+</body>
+</html>
