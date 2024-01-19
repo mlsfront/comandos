@@ -1,0 +1,8 @@
+#dir
+utils/
+
+#files
+*.zip
+
+#icones
+desktop.ini
