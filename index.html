@@ -40,8 +40,10 @@
         }
 
         div.code {
+            background-color: #232526 !important;
             border: 1px solid #c9dfff;
             border-radius: 7px;
+            color: #c9dfff;
             font-size: 18px;
             padding: 7px;
             overflow-x: auto;
@@ -59,6 +61,7 @@
         div.code code button.copyTexto > i {
             background: none;
             border: none !important;
+            color: #c9dfff;
         }
 
         section {
@@ -80,9 +83,19 @@
         }
 
         details button {
+            background-color: #ccc;
             padding: 3px 7px;
             border-radius: 7px;
             border: none;
+            transition: all 1s ease-out;
+        }
+
+        details button:hover {
+            background-color: #c9dfff;
+            padding: 3px 7px;
+            border-radius: 7px;
+            border: none;
+            transition: all 1s ease;
         }
     </style>
 </head>
@@ -90,13 +103,13 @@
     <main>        
         <div class="conteudo">
             <h1>Comandos</h1>
-
+            
             <!--acordion-->
             <div class="acordion">
                 <!-- sequelize -->
                 <section class="sectionSequelize">
                     <details class="sequelize">
-                        <summary class="summary">Squelize</summary>
+                        <summary class="summary">Sequelize</summary>
 
                         <div class="divDetails">
                             <a href="https://github.com/mlsfront/comandos/blob/develop/markdown/comandos-sequelize.md"><button>markdown</button></a>
