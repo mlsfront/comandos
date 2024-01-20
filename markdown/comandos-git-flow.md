@@ -9,19 +9,23 @@
 git flow init
 ```
 
-### Criando css
+#### Após iniciar oGit Floe, seu repositório de trabalho será o develop
+
+## Criando uma feature (nova branch) a partir da develop
+
+### Criando feature
 ```
-git flow feature start css
+git flow feature start nome_feature
 ```
 
-### css criado e finalizado
+### Subindo feature para origin
 ```
-git flow feature finish css
+git push origin feature/nome_feature
 ```
 
-### css não finalizado e publicado
+### Finalizando feature
 ```
-git flow feature publish css (para o time continuar mexendo)
+git flow feature finish nome_feature
 ```
 
 ### iniciando release 
