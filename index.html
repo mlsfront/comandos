@@ -162,24 +162,91 @@
                                     <button class="copyTexto" onclick="copyCode('.c5')"><i class="bi bi-copy"></i></button>
                                 </code>
                             </div>
+
+                            <h3>.sequelizerc</h3>
+                            <p>Arquivo de configuração `.sequelizerc` ao criar models, migrations, ou seeders, elas serão salvas em seus devidos repositórios</p>
                     
                             <h2>Criando e Alterando Tabelas</h2>
                     
-                            <p>Criar a migration da página home do conteúdo do topo </p>
+                            <p>Criar a migration da página home do conteúdo do nomeTabela  </p>
                             
                             <div class="code c6">
                                 <code>
-                                    npx sequelize-cli migration:generate --name create-homes
+                                    npx sequelize-cli migration:generate --name create-nomeTabela
                                     <button class="copyTexto" onclick="copyCode('.c6')"><i class="bi bi-copy"></i></button>
                                 </code>
                             </div>
+
+                            <p>Modelo Migration:</p>    
+                            <div class="code">
+                                <code>
+                                    'use strict';<br><br>
+
+                                    /** @type {import('sequelize-cli').Migration} */<br><br>
+                                    
+                                    // Exportar o obejeto como modulo<br>
+                                    module.exports = {<br>
+                                    &nbsp;// Criando a tabela 'Clientes'<br>
+                                    &nbsp;async up(queryInterface, Sequelize) {<br>
+                                    &nbsp;&nbsp;await queryInterface.createTable('Clientes', {<br>
+                                    &nbsp;&nbsp;&nbsp;id: {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;allowNull: false,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;autoIncrement: true,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;primaryKey: true,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;type: Sequelize.INTEGER<br>
+                                    &nbsp;&nbsp;&nbsp;},<br>
+                                    &nbsp;&nbsp;&nbsp;nome: {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;type: Sequelize.STRING<br>
+                                    &nbsp;&nbsp;&nbsp;},<br>
+                                    &nbsp;&nbsp;&nbsp;email: {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;type: Sequelize.STRING<br>
+                                    &nbsp;&nbsp;&nbsp;},<br>
+                                    &nbsp;&nbsp;&nbsp;contato: {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;type: Sequelize.STRING<br>
+                                    &nbsp;&nbsp;&nbsp;},<br>
+                                    &nbsp;&nbsp;&nbsp;createdAt: {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;allowNull: false,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;type: Sequelize.DATE<br>
+                                    &nbsp;&nbsp;&nbsp;},<br>
+                                    &nbsp;&nbsp;&nbsp;updatedAt: {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;allowNull: false,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;type: Sequelize.DATE<br>
+                                    &nbsp;&nbsp;&nbsp;}<br>
+                                    &nbsp;&nbsp;});<br>
+                                    &nbsp;},<br><br>
+                                    
+                                    &nbsp;// Executar down - rollback - Permite que seja desfeita a migration, permitindo a gestão das alterações do banco de dados e versionamento.<br>
+                                    &nbsp;async down(queryInterface, Sequelize) {<br>
+                                    &nbsp;&nbsp;await queryInterface.dropTable('Clientes');<br>
+                                    &nbsp;}<br>
+                                    };
+                                </code>
+                            </div>
                     
-                            <p>Criar a migration acrescentar a coluna imageTop</p>
+                            <p>Criar a migration acrescentar a coluna nomeColuna</p>
                             
                             <div class="code c7">
                                 <code>
-                                    npx sequelize-cli migration:generate --name alter-homes-add-imagetop
+                                    npx sequelize-cli migration:generate --name alter-nomeTabela-add-nomeColuna
                                     <button class="copyTexto" onclick="copyCode('.c7')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+
+                            <p>Modelo Alteração Migration:</p>
+                            <div class="code">
+                                <code>
+                                    'use strict';<br><br>
+                                    /** @type {import('sequelize-cli').Migration} */<br>
+                                    module.exports = {<br>
+                                    &nbsp;async up (queryInterface, Sequelize) {<br>
+                                    &nbsp;&nbsp;await queryInterface.addColumn('Clientes', 'sobrenome', {<br>
+                                    &nbsp;&nbsp;&nbsp;type: Sequelize. DataTypes.STRING, after: "nome"<br>
+                                    &nbsp;&nbsp;});<br>
+                                    &nbsp;},<br><br>
+                                    &nbsp;async down (queryInterface, Sequelize) {<br>
+                                    &nbsp;&nbsp;await queryInterface.removeColumn('Clientes'), ('sobrenome');<br>
+                                    &nbsp;}<br>
+                                    };<br>
                                 </code>
                             </div>
                     
@@ -198,18 +265,59 @@
                             
                             <div class="code c9">
                                 <code>
-                                    npx sequelize-cli db:migrate:undo --name nome-da-migration
+                                    npx sequelize-cli db:migrate:undo --name nome-da-migration.js
                                     <button class="copyTexto" onclick="copyCode('.c9')"><i class="bi bi-copy"></i></button>
                                 </code>
                             </div>
                     
                             <h2>Criando Models</h2>
-                            <p>Criar a Models da página home do conteúdo do topo </p>
+                            <p> Criar a Models da página do seu conteúdo</p>
                             
                             <div class="code c10">
                                 <code>
-                                    npx sequelize-cli model:generate --name HomesTops --attributes titleOneTop:string,titleTwoTop:string,titleThreeTop:string,linkBtnTop:string,textBtnTop:string,imageTop:string
+                                    npx sequelize-cli model:generate --name nomeModels --attributes primeiroConteudo:string,segundoConteudo:string,terceiroConteudo:text,quartoConteudo:integer, quintoConteudo:float
                                     <button class="copyTexto" onclick="copyCode('.c10')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+
+                            <p>Modelo de Models</p>
+
+                            <div class="code">
+                                <code>
+                                    'use strict';<br><br>
+
+                                    // Incluir as bibliotecas<br>
+                                    // Criar a constante para receber a MODEL do Sequelize para usar como herança na classe<br>
+                                    const { Model } = require('sequelize');<br><br>
+                                    
+                                    // Exportar a função como modulo<br>
+                                    module.exports = (sequelize, DataTypes) => {<br>
+                                    &nbsp;// Criar a classe com o nome da tabela herdando a 'Model' importada acima<br>
+                                    &nbsp;class Clientes extends Model {<br>
+                                    &nbsp;&nbsp;/**<br>
+                                    &nbsp;&nbsp; * Helper method for defining associations.<br>
+                                    &nbsp;&nbsp; * This method is not a part of Sequelize lifecycle.<br>
+                                    &nbsp;&nbsp; * The `models/index` file will call this method automatically.<br>
+                                    &nbsp;&nbsp; */<br>
+                                    &nbsp;&nbsp;static associate(models) {<br>
+                                    &nbsp;&nbsp;// define association here<br>
+                                    &nbsp;&nbsp;}<br>
+                                    &nbsp;}<br>
+                                    &nbsp;<br>
+                                    &nbsp;// Criala as colunas que a `Models` pode manipular<br>
+                                    &nbsp;Clientes.init({<br>
+                                    &nbsp;&nbsp;nome: DataTypes.STRING,<br>
+                                    &nbsp;&nbsp;email: DataTypes.STRING,<br>
+                                    &nbsp;&nbsp;sobrenome: DataTypes.STRING,<br>
+                                    &nbsp;&nbsp;contato: DataTypes.STRING<br>
+                                    &nbsp;}, {<br>
+                                    &nbsp;&nbsp;sequelize,<br>
+                                    &nbsp;&nbsp;modelName: 'Clientes',<br>
+                                    &nbsp;});<br><br>
+                                    
+                                    &nbsp;// Retornar a classe `Clientes`<br>
+                                    &nbsp;return Clientes;<br>
+                                    };         
                                 </code>
                             </div>
                     
@@ -220,8 +328,48 @@
                             
                             <div class="code c11">
                                 <code>
-                                    npx sequelize-cli seed:generate --name demo-homestops
+                                    npx sequelize-cli seed:generate --name demo-nomeSeed
                                     <button class="copyTexto" onclick="copyCode('.c11')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+
+                            <p>Modelo Seed:</p>
+
+                            <div class="code">
+                                <code>
+                                    'use strict';<br><br>
+
+                                    /** @type {import('sequelize-cli').Migration} */<br><br>
+                                    
+                                    // Exportar o objeto como modulo<br>
+                                    module.exports = {<br>
+                                    &nbsp:// Cadastrar o registro na tabela "Clientes"<br>
+                                    &nbsp:async up (queryInterface) {<br>
+                                    &nbsp;&nbsp;return queryInterface.bulkInsert ('Clientes', [<br>
+                                    &nbsp;&nbsp;&nbsp;{<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;nome: 'Web App',<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;sobrenome: "Agendamento",<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;email: 'alunos@orange.com',<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;contato: '7198542-4286',<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;createdAt: new Date(),<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;updatedAt: new Date(),<br>
+                                    &nbsp;&nbsp;&nbsp;},<br>
+                                    &nbsp;&nbsp;&nbsp;{<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;nome: 'Atendimento',<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;sobrenome: "WebApp",<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;email: 'orange@discord.com',<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;contato: '7197823-4876',<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;createdAt: new Date(),<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;updatedAt: new Date(),<br>
+                                    &nbsp;&nbsp;&nbsp;},<br>
+                                    &nbsp;&nbsp;])<br>
+                                    &nbsp:},<br><br>
+                                    
+                                    &nbsp:// Limpar os registros da tebela 'Clientes'<br>
+                                    &nbsp:async down (queryInterface) {<br>
+                                    &nbsp;&nbsp;await queryInterface.bulkDelete ('Clientes', null, {});<br>
+                                    &nbsp:}<br>
+                                    };       
                                 </code>
                             </div>
                     
@@ -238,7 +386,7 @@
                             
                             <div class="code c13">
                                 <code>
-                                    npx sequelize-cli db:seed --seed nome-da-seed
+                                    npx sequelize-cli db:seed --seed nomeSeed.js
                                     <button class="copyTexto" onclick="copyCode('.c13')"><i class="bi bi-copy"></i></button>
                                 </code>
                             </div>
@@ -256,7 +404,7 @@
                             
                             <div class="code c15">
                                 <code>
-                                    npx sequelize-cli db:seed:undo --seed nome-da-seed
+                                    npx sequelize-cli db:seed:undo --seed nomeSeed.js
                                     <button class="copyTexto" onclick="copyCode('.c15')"><i class="bi bi-copy"></i></button>
                                 </code>
                             </div>
@@ -288,34 +436,34 @@
                                 </code>
                             </div>
                             
-                            <p>Criando css</p>
+                            <p>Criando nome_feature</p>
                             
                             <div class="code g2">
                                 <code>
-                                    git flow feature start css
+                                    git flow feature start nome_feature
                                     <button class="copyTexto" onclick="copyCode('.g2')"><i class="bi bi-copy"></i></button>
                                 </code>
                             </div>
                             
-                            <p>css criado e finalizado</p>
+                            <p> Subindo feature para origin</p>
                             
                             <div class="code g3">
                                 <code>
-                                    git flow feature finish css
+                                    git push origin feature/nome_feature
                                     <button class="copyTexto" onclick="copyCode('.g3')"><i class="bi bi-copy"></i></button>
                                 </code>
                             </div>
                             
-                            <p>css não finalizado e publicado</p>
+                            <p>Finalizando feature</p>
                             
                             <div class="code g4">
                                 <code>
-                                    git flow feature publish css (para o time continuar mexendo)
+                                    git flow feature finish nome_feature
                                     <button class="copyTexto" onclick="copyCode('.g4')"><i class="bi bi-copy"></i></button>
                                 </code>
                             </div>
                             
-                            <p>iniciando release </p>
+                            <p>Iniciando release </p>
                             
                             <div class="code g5">
                                 <code>
@@ -324,7 +472,7 @@
                                 </code>
                             </div>
                             
-                            <p>finalizando release</p>
+                            <p>Finalizando release</p>
                             
                             <div class="code g6">
                                 <code>
@@ -333,7 +481,7 @@
                                 </code>
                             </div>
                             
-                            <p>verificando versões </p>
+                            <p>Verificando versões </p>
                             
                             <div class="code g7">
                                 <code>
@@ -342,7 +490,7 @@
                                 </code>
                             </div>
                             
-                            <p>pequenas aletrações na versãoa atual</p>
+                            <p>Pequenas aletrações na versãoa atual</p>
                             
                             <div class="code g8">
                                 <code>
@@ -351,7 +499,7 @@
                                 </code>
                             </div>
                             
-                            <p>aleterações finalizadas</p>
+                            <p>Aleterações finalizadas</p>
                             
                             <div class="code g9">
                                 <code>
@@ -360,7 +508,7 @@
                                 </code>
                             </div>
                             
-                            <p>fazendo push em todas as branchs </p>
+                            <p>Fazendo push em todas as branchs </p>
                             
                             <div class="code g10">
                                 <code>
