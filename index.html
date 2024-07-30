@@ -97,6 +97,35 @@
             border: none;
             transition: all 1s ease;
         }
+
+        /*btnTopo*/
+        .btnTopo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 25px;
+            height: 25px;
+            background-color: #000;
+            text-decoration: none;
+            border-radius: 50%;
+        }
+
+        .btnTopo::after {
+            /* content: "â†‘"; */
+            content: "▲";
+            font-size: 14px;
+            font-weight: bold;
+            color: aliceblue;
+            transition: margin-top 250ms;
+        }
+
+        .btnTopo:hover::after {
+            margin-top:-8px;
+        }
+        /*fim btnTopo*/           
     </style>
 </head>
 <body>
@@ -114,9 +143,9 @@
                         <div class="divDetails">
                             <a href="https://github.com/mlsfront/comandos/blob/develop/markdown/comandos-sequelize.md"><button>markdown</button></a>
 
-                            <h2 class="text-center">Comando Sequelize</h2>
+                            <h3 class="text-center">Comando Sequelize</h3>
 
-                            <h2>Configuração Inicial</h2>
+                            <h3>Configuração Inicial</h3>
                     
                             <p>Sequelize é uma biblioteca Javascript que facilita o gerenciamento do banco de dados SQL</p>
 
@@ -163,10 +192,11 @@
                                 </code>
                             </div>
 
-                            <h3>.sequelizerc</h3>
+                            <h4>.sequelizerc</h4>
+
                             <p>Arquivo de configuração `.sequelizerc` ao criar models, migrations, ou seeders, elas serão salvas em seus devidos repositórios</p>
                     
-                            <h2>Criando e Alterando Tabelas</h2>
+                            <h3>Criando e Alterando Tabelas</h3>
                     
                             <p>Criar a migration da página home do conteúdo do nomeTabela  </p>
                             
@@ -250,7 +280,7 @@
                                 </code>
                             </div>
                     
-                            <h2>Interagindo como o  Banco de Dados</h2>
+                            <h3>Interagindo como o  Banco de Dados</h3>
                     
                             <p>Executar as migrations</p>
                             
@@ -270,7 +300,7 @@
                                 </code>
                             </div>
                     
-                            <h2>Criando Models</h2>
+                            <h3>Criando Models</h3>
                             <p> Criar a Models da página do seu conteúdo</p>
                             
                             <div class="code c10">
@@ -321,7 +351,7 @@
                                 </code>
                             </div>
                     
-                            <h2>Seeders</h2>
+                            <h3>Seeders</h3>
                             <p>Adicionando Dados Inicais para Tabelas</p>
                     
                             <p>Criar seeders</p>
@@ -421,9 +451,10 @@
                             <a href="https://github.com/mlsfront/comandos/blob/develop/markdown/comandos-git-flow.md"><button>markdown</button></a>
                             
                             <div class="text-center">
-                                <h2>Comandos Git Flow</h2>
+                                <h3>Comandos Git Flow</h3>
                                 
-                                <h3>Comandos que foram apresentados na vídeo aula</h3>
+                                <h4>Comandos que foram apresentados na vídeo aula</h4>
+
                                 <p>Link para o vídeo no final do conteúdo</p>
                             </div>
                             
@@ -521,6 +552,592 @@
                         </div>    
                     </details>
                 </section>
+
+                <!-- linux -->
+                <section class="sectionLinux">
+                    <details class="linux">
+                        <summary class="summary">Linux</summary>
+                        
+                        <div class="divDetails">                            
+                            <div class="text-center">
+                                <h3>Comandos Linux</h3>
+                            </div>
+
+                            <h3>ADICIONAR NOVO USUÁRIO</h3>
+
+                            <p>Após criar o novo usuário ja aparecerá a opção para criação da senha</p>
+
+                            <div class="code l1">
+                                <code> 
+                                    adduser nome-usuario
+                                    <button class="copyTexto" onclick="copyCode('.l1')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>ADICIONAR USUÁRIO AO GRUPO SUDO</h4>
+
+                            <div class="code l2">
+                                <code>
+                                    $ echo "usuario ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/usuario
+                                    <button class="copyTexto" onclick="copyCode('.l2')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>Fonte: [Digital Ocean](https://www.digitalocean.com/community/cdtutorials/initial-server-setup-with-debian-9)</p>
+                            
+
+                            <h3>CONTEÚDO AULA-2</h3>
+                            <div class="code l3">
+                                <code>
+                                    (clear) -> Limpa a tela<br>
+                                    (~) &lt;- Símbolo Diretório padrão do root<br>
+                                    (#) &lt;- Símbolo Logado como root usuario adim<br>
+                                    ($) &lt;- Símbolo Logado como usuário<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l3')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>DESLIGAR E REINICIAR</h4>
+
+                            <p>Debian 11</p>
+
+                            <div class="code l4">
+                                <code>
+                                    sudo systemctl poweroff<br>
+                                    sudo systemctl reboot<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l4')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+
+                            <p>Demais distros</p>
+
+                            <div class="code l5">
+                                <code>
+                                    (reboot) - Reinicia o linux<br>
+                                    (halt) - Desliga<br>
+                                    (shutdown -h now) - Também desliga o linux<br>
+                                    (shutdown -h 1) - Desliga o computador em um minuto<br>
+                                    (Ctrl +c) - Cancela a operação<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l5')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>DIVERSOS</h4>
+
+                            <div class="code l6">
+                                <code>
+                                    (pwd) - mostra o diretorio q esta<br>
+                                    (cd /) - Se povimenta para raiz<br>
+                                    (cd + enter) - Leva ao diretório padrão d usuário + <br>
+                                    (clear) - Limpa tela<br>
+                                    (ls) - Lista os principais diretórios do linux<br>
+                                    (cd home + enter) -Vai para a pasta do home<br>
+                                    (cd ..) - Volta um diretório<br>
+                                    (date) - Exibe data e hora<br>
+                                    (cal) - Calendario<br>
+                                    (date;cal) - Exibe dois comandos com o ponte e virgula<br>
+                                    (man + comando) - Descrição do comando especificado<br>
+                                    (whatis) - Descrição específica<br>
+                                    (history) - Historico dos comandos usados<br>
+                                    (clear) - Limpa a tela<br>
+                                    (touch) - Cria arquivo<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l6')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>CRIAR E APAGAR DIRETÓRIO</h4>
+
+                            <div class="code l7">
+                                <code>
+                                    (mkdir -c) - Cria diretórios ex: mkdir documentos<br>
+                                    (rm -r) - Apaga diretorios ex: rm -r documentos<br>
+                                    (rm -rf) - Apaga tdo sem perguntar<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l7')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>EDITOR DE TEXTO(vi)</h4>
+
+                            <p>É o editor que cai na "certificação LPI"</p>
+
+                            <div class="code l8">
+                                <code>
+                                    (vi + nome do arquivo) - Cria ou edita arquivo<br>
+                                    (i) - Para escrever em cima do cursor<br>
+                                    (a) - Para escrever a partir do cursor<br>
+                                    (Esc:wq) - Salvar e sair<br>
+                                    (Esc u) - Desfaz o q estava fazendo<br>
+                                    (Esc:q!) - Sai do arquivo sem salvar<br>
+                                    (set number) - Numera as linhas<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l8')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>EDIÇÃO</h4>
+
+                            <div class="code l9">
+                                <code>
+                                    (cat) - Mostra o conbteúdo do arquivo<br>
+                                    (tac + Nome do arquivo) - Mostra o conteudo de trás pra frente<br>
+                                    (mv + Nome do arquivo) - Mover ou renomear o arquivo ex: mv Serviços serviços<br>
+                                    (cp) - Faz backup, ex: cp serviços serviços.bkp<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l9')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>PESQUISA</h4>
+
+                            <div class="code l10">
+                                <code>
+                                    (ls carta) - Mostra q tem carta<br>
+                                    (ls -l carta) - Mostra detalhes<br>
+                                    DIRETORIOS SÃO PASTAS; ARQUIVOS SÃO DOCUMENTOS:<br>
+                                    (ls -l) - Mostra o q eh arquivo e diretorio:<br>
+                                    (ls -lh) - Mostra Permissões Links Proprietários Grupo Tamanho Data e Hora Nome<br>
+                                    começa com (-) - É arquivo<br>
+                                    começa com (d) - É diretorio<br>
+                                    começa com (l) - É link<br>
+                                    (cat + nome do arquivo) - Visualiza o conteudo do arquivo<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l10')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>TECLAS DE ATALHO</h4>
+
+                            <div class="code l11">
+                                <code>
+                                    (Pra cima) - Repete o último comando<br>
+                                    (Pra baixo) - Idem<br>
+                                    (tab) - Completa comando<br>
+                                    (cd ho+tab) - Completa o comando<br>
+                                    (history) - Exibe os mil últimos comando digitados<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l11')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>LISTAR UPGRADE</h4>
+
+                            <div class="code l12">
+                                <code>
+                                    apt list --upgradable
+                                    <button class="copyTexto" onclick="copyCode('.l12')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>LOCALIZAR PROGRAMAS</h3>
+
+                            <div class="code l13">
+                                <code>
+                                    dpkg -l | grep apache2 <br>
+                                    dpkg -l | grep openjdk-8-jre<br>
+                                    <button class="copyTexto" onclick="copyCode('.l13')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+
+                            <p>Fonte: [Professor José de Assis](https://youtu.be/agpNQ0Tv7ZU)</p>
+                            
+                            <h3>COMPACTAR ARQUIVOS</h3>
+
+                            <div class="code l14">
+                                <code>	                            
+                                    tar -czvf arquivo.tar.gz arquivo/<br>
+                                    ou<br>
+                                    tar cf arquivo.tar arquivo<br>
+                                    <button class="copyTexto" onclick="copyCode('.l14')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>DESCOMPACTAR ARQUIVOS</h3>
+
+                            <div class="code l15">
+                                <code>                            
+                                    tar -xzvf arquivo.tar.gz<br>
+                                    ou<br>
+                                    tar xf arquivo.tar arquivo<br>
+                                    <button class="copyTexto" onclick="copyCode('.l15')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>COMANDO KILL</h3>
+
+                            <p>Comando para parar um processo</p>
+                            
+                            <h4>INTERROMPENDO O PROGRAMA</h4>
+
+                            <div class="code l16">
+                                <code>
+                                    kill &lt;numero_PID&gt;
+                                    <button class="copyTexto" onclick="copyCode('.l16')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>VERRIFICAR PROGRAMAS QUE ESTÃO SENDO EXECUTADOS</h4>
+
+                            <div class="code l17">
+                                <code>
+                                    top 
+                                    <button class="copyTexto" onclick="copyCode('.l17')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>MOSTRAR PROGRAMAS EM EXECUÇÃO</h4>
+
+                            <div class="code l18">
+                                <code> 
+                                    ps aux 
+                                    <button class="copyTexto" onclick="copyCode('.l18')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>ESPECIFICANDO </h4>
+
+                            <div class="code l19">
+                                <code> 
+                                    ps -ef | grep &lt;nome&gt;
+                                    <button class="copyTexto" onclick="copyCode('.l19')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+
+                            <p>**Fonte: Meus arquivos**</p>                           
+                            
+                            <h3>COMANDO PARA VERIFICAR A VERSÃO DO SISTEMA:</h3>
+
+                            <div class="code l20">
+                                <code>
+                                    cat /etc/*-release
+                                    <button class="copyTexto" onclick="copyCode('.l20')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+
+                            <p>**OU ENTÃO**:</p>
+
+                            <div class="code l21">
+                                <code>
+                                    cat /etc/*-release | grep PRETTY<br>
+                                    lsb_release -a<br>
+                                    uname -r (verifica versão do Kernel)<br>
+                                    uname -a<br>
+                                    uname -mrs<br>
+                                    uname --help<br>
+                                    cat /proc/version<br>
+                                    <button class="copyTexto" onclick="copyCode('.l21')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>COMANDO PARA VERIFICAR INTEGRIDADE</h3>
+
+                            <div class="code l22">
+                                <code>
+                                    $ls &lt;nomoe_programa&gt;<br>
+                                    #Sha256sum &lt;nome_programa&gt; | grep &lt;numero_sha256sum&gt;<br>
+                                    <button class="copyTexto" onclick="copyCode('.l22')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>DEFINIR EDITOR PADRÃO</h3>
+
+                            <div class="code l23">
+                                <code>
+                                    sudo update-alternatives --config editor
+                                    <button class="copyTexto" onclick="copyCode('.l23')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>CONFIGURAR TECLADO</h3>
+
+                            <div class="code l24">
+                                <code>
+                                    dpkg-reconfigure keyboard-configuration
+                                    <button class="copyTexto" onclick="copyCode('.l24')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>ALTERAR O GRUPO DE UM ARQUIVO OU DIRETÓRIO - chgrp (change group)</h3>
+
+                            <div class="code l25">
+                                <code>
+                                    chgrp [novo_grupo] [nome_arquivo]
+                                    <button class="copyTexto" onclick="copyCode('.l25')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>ALTERAR O PROPRIETÁRIO DE UM ARQUIVO OU DIRETÓRIO - chown (change owner)</h3>
+
+                            <div class="code l26">
+                                <code>
+                                    chown [novo_proprietário] [novo_arquivo]
+                                    <button class="copyTexto" onclick="copyCode('.l26')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>ADICIONAR UM NOVO GRUPO - addgroup</h3>
+
+                            <div class="code l27">
+                                <code>                            
+                                    addgroup [nome_grupo]
+                                    <button class="copyTexto" onclick="copyCode('.l27')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>COMANDO CHMOD</h3>
+                            
+                            <h4>PERMISSÃO PARA EXECUTAR SCRIPT .SH</h4>
+
+                            <div class="code l28">
+                                <code>
+                                    chmod +x &lt;nome_arquivo&gt;
+                                    <button class="copyTexto" onclick="copyCode('.l28')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>COMANDO chmod - ALTERA PERMISSÃO PELO TERMINAL</h4>
+
+                            <div class="code l29">
+                                <code>
+                                    chmod +x <arquivo/diretorio>
+                                    <button class="copyTexto" onclick="copyCode('.l29')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>COMANDO chmod - ALTERA AS PERMISSÕES DE ACESSO A ARQUIVOS E DIRETÓRIOS</h4>
+
+                            <p>**Modo de permissões octal**</p>
+                            
+                            <div class="code l30">
+                                <code>
+                                    chmod [permissões] [arquivos ou diretórios]
+                                    <button class="copyTexto" onclick="copyCode('.l30')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+
+                            &gt; 1. Execução - 1<br>
+                            &gt; 2. Escrita - 2 <br>
+                            &gt; 3. Leitura - 4<br>
+                            
+                            <h4>1 = ligado / 0 = desligado</h4>
+
+                            rwx|<br>
+                            ---|<br>
+                            001	= 1|<br><br>
+                            
+                            --x|<br>
+                            ---|<br>
+                            001 = 1|<br><br>
+                            
+                            -w-|<br>
+                            ---|<br>
+                            010 = 2|<br><br>
+                            
+                            r--|<br>
+                            ---|<br>
+                            100 = 4|<br><br>
+                            
+                            rw-|<br>
+                            ---|<br>
+                            110 = 4 + 2 = 6|<br><br>
+                            
+                            rwx|<br>
+                            ---|<br>
+                            111 = 4 + 2 + 1 = 7|<br><br>
+                            
+                            <h4>PROPRIETÁRIO | GRUPO | OUTROS</h4>
+
+                            rwx|rw-|rw-<br>
+                            ---|---|--- <br>
+                            111|110|110<br>
+                            7|6|6<br><br>
+                            
+                            <h4>766</h4>
+
+                            &gt; 1. Proprietário &gt; lê,escreve,executa; <br>
+                            &gt; 2. Grupo &gt; lê, escreve; <br>
+                            &gt; 3. Outros &gt; lê, escreve<br>
+                            
+                            rw-|r--|x--<br>
+                            ---|---|---<br>
+                            6|4|0<br>
+                            
+                            <h4>6	4	0</h4>
+
+                            &gt; 1. Proprietário &gt; lê, escreve; <br>
+                            &gt; 2. Grupo &gt; lê; <br>
+                            &gt; 3. Outros &gt; lê<br>
+                            
+                            <h4>PERMISSÕES</h4>
+
+                            <p>Proprietario|Grupo|Outros</p>
+                            ---|---|---<br>
+                            rwx|r-x|r-x<br>
+                            
+                            <h4>SIGNIFICADOS</h4>
+
+                            <div class="code l31">
+                                <code>
+                                    r = Read (Leitura)<br>
+                                    w = Write (Escrita)<br>
+                                    x = Execution (Execução)<br>
+                                    - = Sem Permissão<br>                            
+                                    <button class="copyTexto" onclick="copyCode('.l31')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>PESQUISA COMPLETA DE PERMISSÕES</h3>
+
+                            <div class="code l32">
+                                <code>                            
+                                    ls -lh
+                                    <button class="copyTexto" onclick="copyCode('.l32')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            Permissões|Links|Proprietários|Grupo|Tamanho|Data e Hora|Nome<br>
+                            ---|---|---|---|---|---|---<br>
+                            drwxr-xr-x|2|user|user|4096|13/9/2017|nome<br>
+                            
+                            <h3>COMANDO PARA CRIAR ARQUIVO VAZIO - touch</h3>
+                            
+                            <h4>CRIANDO ARQUIVO TESTE</h4>
+
+                            <div class="code l33">
+                                <code>
+                                    sudo touch arquivoteste
+                                    <button class="copyTexto" onclick="copyCode('.l33')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>MOSTRAR ARQUIVO CRIADO </h4>
+
+                            <div class="code l34">
+                                <code>
+                                    ls arquivoteste
+                                    <button class="copyTexto" onclick="copyCode('.l34')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>MOSTRAR DETALHES DO ARQUIVO CRIADO</h4>
+
+                            <div class="code l35">
+                                <code>
+                                    ls -l arquivoteste
+                                    <button class="copyTexto" onclick="copyCode('.l35')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>Explicando</h4>
+
+                            <div class="code l36">
+                                <code>
+                                    -rwx-w-r-- (arquivo, Proprietário lê, escreve, executa; Grupo escreve; Outros lê)
+                                    <button class="copyTexto" onclick="copyCode('.l36')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>ALETRANDO PERMISSÕES </h3>
+                                &gt; 1. Proprietário, fazer tudo <br>
+                                &gt; 2. Grupo, só ler <br>
+                                &gt; 3. Outros, escrever<br>
+                            
+                            <div class="code l37">
+                                <code>
+                                    touch - c<br>
+                                    sudo chmod 724 arquivoteste<br>
+                                    sudo ls -l arquivoteste<br>
+                                    -rwxr---w-		<br>
+                                    <button class="copyTexto" onclick="copyCode('.l37')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>                            
+                            
+                            <h3>PERMISSÃO GERAL PARA TODOS</h3>
+                            <div class="code l38">
+
+                                <code>
+                                    sudo chmod 777 arquivoteste<br>
+                                    sudo ls -l arquivoteste<br>
+                                    -rwxrwxrwx<br>
+                                    <button class="copyTexto" onclick="copyCode('.l38')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>LAMP</h3>
+                            
+                            <p>Normalmente, o diretório /var/www, mas também pode ser /var/www/html por exemplo. Por padrão, este diretório só pode ser escrito pelo root e para ficar mais prático, e poder acessar com o nosso usuário. </p>
+                            
+                            <h4>MUDANDO O DIRETÓRIO </h4>
+
+                            <div class="code l39">
+                                <code>
+                                    $ sudo chown -c -R seu_usuario /var/www/ 
+                                    <button class="copyTexto" onclick="copyCode('.l39')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>REINICIANDO O APACHE </h3>
+
+                            <div class="code l40">
+                                <code>
+                                    $ sudo /etc/init.d/apache2 restart 
+                                    <button class="copyTexto" onclick="copyCode('.l40')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h3>COMANDO CHOWN</h3>
+                            
+                            <h4>CHOWN DONO[:GRUPO] ARQUIVO</h4>
+                            
+                            <p>Descrição</p>
+
+                            <p>Este comando permite alterar o nome do dono e/ou do grupo de arquivos.</p>
+                            
+                            <h4>Algumas opções do comando</h4>
+
+                            <div class="code l41">
+                                <code>                            
+                                    -c : informa quais arquivos estão sendo alterados.<br>
+                                    -h : altera o link, não o arquivo apontado pelo link.<br>
+                                    -v : informa quais arquivos estão sendo processados (não necessariamente alterados).<br>
+                                    -R : altera, recursivamente, dono e/ou grupo de arquivos.<br>
+                                    −−help : exibe opções do comando.<br>
+                                    −−version : exibe informações sobre o aplicativo.<br>
+                                    <button class="copyTexto" onclick="copyCode('.l41')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <h4>Exemplos</h4>
+
+                            <p>Suponha, por exemplo, a existência de um diretório de nome teste. Queremos que este diretório e todo o seu conteúdo passe a pertencer ao usuário aluno e ao grupo informatica. Podemos, então, digitar o comando</p>
+                            
+                            <div class="code l42">
+                                <code>
+                                    chown -Rc aluno:informatica teste
+                                    <button class="copyTexto" onclick="copyCode('.l42')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>para alterar o dono e o grupo do diretório teste e de todos os arquivos e diretórios que estão hierarquicamente abaixo do diretório teste. Como o argumento -c é usado, será mostrada apenas a lista dos arquivos e diretórios alterados.</p>
+                            
+                            <h4>Para alterar apenas o dono dos arquivos, digite</h4>
+
+                            <div class="code l43">
+                                <code>
+                                    chown -Rc aluno teste
+                                    <button class="copyTexto" onclick="copyCode('.l43')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>Se o objetivo é alterar apenas o grupo dos arquivos, basta digitar</p>
+
+                            <div class="code l44">
+                                <code>
+                                    chown -Rc :informatica teste                          
+                                    <button class="copyTexto" onclick="copyCode('.l44')"><i class="bi bi-copy"></i></button>
+                                </code>
+                            </div>
+                            
+                            <p>**Observações**</p>
+                            <p>O comando **chgrp** altera o grupo de arquivos.</p>
+                            <p>O comando **chmod** altera as permissões de arquivos.</p>
+                    </details>
+                </section>  
             </div>  
         </div> 
     </main>   
@@ -542,5 +1159,9 @@
             }
         }
     </script>
+
+    <footer>
+        <a href="#" class="btnTopo"></a>
+    </footer>
 </body>
 </html>
